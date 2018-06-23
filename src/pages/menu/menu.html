@@ -1,0 +1,35 @@
+<ion-content>
+  <!-- FAB CART BUTTON -->
+  <ion-fab right bottom>
+    <button ion-fab class="bgButton">
+      <ion-icon class="eggshell" name="md-cart"></ion-icon>
+    </button>
+  </ion-fab>
+
+  <!-- FEATURES TEXT -->
+  <div class="padding-20 padding-bottom-0">
+    <h2 class="black bold no-margin">
+      Cardápio
+    </h2>
+  </div>
+
+  <!-- CATEGORIE -->
+  <div class="categorie mg-top-20">
+    <h4 class="eggshell no-margin padding-top-5 bold">
+      Pizzas
+    </h4>
+  </div>
+
+  <!-- PRODUCTS -->
+  <div class="padding-20">
+    <!-- ITEM -->
+    <div class="product" *ngFor="let p of products">
+      <h4 class="black bold">
+        {{p.title}}
+      </h4>
+      <p class="black regular no-margin">
+        {{p.description}}
+      </p>
+    </div>
+  </div>
+</ion-content>

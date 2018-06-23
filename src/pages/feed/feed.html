@@ -1,0 +1,83 @@
+<ion-content *ngIf="user">
+  <!-- HEADER -->
+  <div class="feed-header">
+    <!-- WELCOME MESSAGE -->
+    <h4 class="eggshell regular">
+      Olá, {{user.name}}!
+    </h4>
+
+    <!-- DEFAULT AVATAR -->
+    <div *ngIf="!user.avatar" class="avatarPos avatar">
+    </div>
+  </div>
+
+  <!-- SUBHEADER -->
+  <div class="feed-subheader">
+    <!-- ADDRESS -->
+    <p class="black bold">
+      R. agostinho irente
+    </p>
+
+    <!-- EDIT -->
+    <p class="black edit">
+      Editar
+    </p>
+  </div>
+
+  <!-- BODY -->
+  <div class="padding-20 padding-bottom-0">
+    <!-- FEATURED TEXT -->
+    <h3 class="black bold">
+      O que você quer comer hoje?
+    </h3>
+
+    <!-- SLIDE ITEMS -->
+    <ion-scroll scrollX="true" scrollbar-x="false" style="width: 100%; height: 120px">
+      <ion-row nowrap>
+        <div class="slideContainer center" *ngFor="let p of products; let i = index" [ngClass]="i != 0 ? 'mg-left-20' : ''">
+          <div class="slideItem" [ngStyle]="{ 'background-image': 'url(' + p.image + ')'}">
+          </div>
+          <p class="black regular mg-0 mg-top-15">
+            {{p.title}}
+          </p>
+        </div>
+      </ion-row>
+    </ion-scroll>
+
+    <!-- SHOW ALL OPTIONS -->
+    <div class="showAllOptions bold center">
+      Ver todas as opções
+    </div>
+
+    <!-- FEATURED TEXT -->
+    <h3 class="black bold mg-top-60">
+      Seu carrinho
+    </h3>
+
+    <!-- AMOUNT -->
+    <div class="amountContainer">
+      <h4 class="red regular no-margin" style="display: inline-block">
+        R$
+      </h4>
+      <h1 class="red bold no-margin font40" style="display: inline-block">
+        {{amount}}
+      </h1>
+
+      <div class="amountRight">
+        <h1 class="red bold no-margin font40" style="display: inline-block">
+          {{items.length}}
+        </h1>
+        <h4 class="red regular no-margin" style="display: inline-block">
+          Itens
+        </h4>
+      </div>
+    </div>
+
+    <!-- SHOW ALL OPTIONS -->
+    <div class="showAllOptions bold center mg-top-10">
+      Abrir carrinho
+    </div>
+  </div>
+
+
+</ion-content>

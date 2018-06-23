@@ -1,0 +1,96 @@
+page-feed {
+    .feed-header {
+        background: $red;
+        padding: 10px 20px;
+        position: relative;
+    }
+    .avatar {
+        background-image: url('../assets/imgs/avatar.png');
+    }
+    .avatarPos {
+        background-size: cover;
+        background-position: center center;
+        height: 40px;
+        width: 40px;
+        border: 3px solid $eggshell;
+        border-radius: 100px;
+        position: absolute;
+        right: 20px;
+        top: 15px;
+    }
+    .feed-subheader {
+        background: $eggshell;
+        padding: 1px 20px;
+        position: relative;
+        padding-top: 5px;
+    }
+    .edit {
+        position: absolute;
+        right: 20px;
+        top: 5px;
+    }
+    .slideItem {
+        height: 70px;
+        width: 70px;
+        border-radius: 100px;
+        border: 1.5px solid $red;
+        background-size: cover;
+        background-position: center center;
+    }
+    .slideContainer {
+        display: inline-block;
+        width: 70px
+    }
+    //Scrollbar color
+    .showAllOptions {
+        padding: 5px;
+        border-radius: 100px;
+        border: 2px solid #C6C6C6;
+        color: #C6C6C6;
+        padding-top: 10px;
+    }
+    ion-scroll.scroll-content {
+        padding: -20px !important
+    }
+    .font40 {
+        font-size: 40px
+    }
+    .amountContainer {
+        position: relative
+    }
+    .amountRight {
+        position: absolute;
+        top: 0;
+        right: 20px
+    }
+
+    //Hide scrollbar
+    ::-webkit-scrollbar,
+    *::-webkit-scrollbar {
+        display: none;
+    }
+
+    // iPhone X
+    @media only screen 
+    and (device-width : 375px) 
+    and (device-height : 812px) 
+    and (-webkit-device-pixel-ratio : 3) { 
+        .scroll-content {
+            padding-top: 0px !important
+        }
+        .feed-header {
+            padding-top: 40px !important
+        }
+        .avatarPos {
+            background-size: cover;
+            background-position: center center;
+            height: 40px;
+            width: 40px;
+            border: 3px solid $eggshell;
+            border-radius: 100px;
+            position: absolute;
+            right: 20px;
+            top: 45px;
+        }
+    }
+}   

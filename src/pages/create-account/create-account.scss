@@ -1,6 +1,6 @@
-page-login {
-    .loginBackground {
-        background-image: url('../assets/imgs/bg-login.jpg');
+page-create-account {
+    .registerBackground {
+        background-image: url('../assets/imgs/bg-register.jpg');
         background-size: cover;
         background-position: center;
     }
@@ -18,16 +18,16 @@ page-login {
     }
 
     //Login CTA
-    .loginCta {
+    .registerCta {
         width: 100%;
         padding: 5px 0px;
         text-align: center;
-        background-color: $red;
+        background-color: $green;
         color: $eggshell;
         border-radius: 100px;
         border: 1.5px solid $eggshell;
     }
-    .btnLogin {
+    .btnRegister {
         height: 20px
     }
 }
