@@ -10,16 +10,8 @@ export class AuthProvider {
   }
 
   //Create user
-  register(data){
-    let email = data.email;
-    let pass = data.pass;
-    return this.afAuth.auth.createUserWithEmailAndPassword(email, pass);
-  }
+  register = (data) => this.afAuth.auth.createUserWithEmailAndPassword(data.email, data.pass);
 
   //Login
-  login(data){
-    let email = data.email;
-    let pass = data.pass;
-    return this.afAuth.auth.signInWithEmailAndPassword(email, pass);
-  }
+  login = (data) => this.afAuth.auth.signInWithEmailAndPassword(data.email, data.pass);
 }
