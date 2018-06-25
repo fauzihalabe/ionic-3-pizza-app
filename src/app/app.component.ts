@@ -17,15 +17,15 @@ export class MyApp {
     private storage: Storage
   ) {
     this.storage.get('user_pizza_app')
-      .then((user) => {
-        if (user) {
-          this.rootPage = 'TabsPage';
-        }
-        else {
-          this.rootPage = 'LoginPage';
-        }
-      });
-
+    .then((user) => {
+      if (user) {
+        this.rootPage = 'TabsPage';
+      }
+      else {
+        this.rootPage = 'LoginPage';
+      }
+    });
+    
     platform.ready().then(() => {
       setTimeout(() => {
         splashScreen.hide();
