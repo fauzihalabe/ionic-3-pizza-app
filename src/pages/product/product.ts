@@ -63,7 +63,7 @@ export class ProductPage {
 
   //Convert to price format
   toPrice(price) {
-    price = parseInt(price);
+    price = parseFloat(price);
     return price.toFixed(2);
   }
 

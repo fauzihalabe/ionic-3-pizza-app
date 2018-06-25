@@ -57,14 +57,14 @@ export class CartPage {
     //Amount
     let i = 0;
     for (i; i < this.cart.length; i++) {
-      let price = parseInt(this.cart[i].price);
+      let price = parseFloat(this.cart[i].price);
       this.amount = this.amount + price;
     }
   }
 
   //Convert to price format
   toPrice(price) {
-    price = parseInt(price);
+    price = parseFloat(price);
     return price.toFixed(2);
   }
 

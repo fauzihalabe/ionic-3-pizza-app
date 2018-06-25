@@ -63,7 +63,7 @@ export class FeedPage {
           //Amount
           let i = 0;
           for (i; i < this.items.length; i++) {
-            let price = parseInt(this.items[i].price);
+            let price = parseFloat(this.items[i].price);
             this.amount = this.amount + price;
           }
         }
@@ -89,7 +89,7 @@ export class FeedPage {
 
   //Convert to price format
   toPrice(price) {
-    price = parseInt(price);
+    price = parseFloat(price);
     return price.toFixed(2);
   }
 
