@@ -5,6 +5,7 @@ import { LoadingProvider } from '../../providers/loading';
 import { FirebaseProvider } from '../../providers/firebase';
 import { ImagesUpload } from '../../providers/image-upload';
 import { Camera } from '@ionic-native/camera';
+import * as firebase from 'firebase';
 
 @IonicPage()
 @Component({
@@ -107,8 +108,12 @@ export class ProfilePage {
       // console.log(imgToUp);
       this.storageImages.uploadPhoto(imgToUp, this.user.uid, 'Profile')
         .then((savedPicture) => {
-          load.dismiss();
-          this.user.avatar = savedPicture.downloadURL;
+          let storageRef = firebase.storage().ref('Images/' + 'Profile' + '/' + this.user.uid);
+            storageRef.getDownloadURL()
+                .then(url => {
+                    load.dismiss();
+                    this.user.avatar = url;
+                });
         })
         .catch((err) => {
           load.dismiss()

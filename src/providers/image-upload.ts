@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import * as firebase from 'firebase';
-import { firebaseConfig } from '../configs/firebase';
 
 @Injectable()
 export class ImagesUpload {
@@ -12,16 +11,6 @@ export class ImagesUpload {
 
     constructor(
     ) {
-        if (!firebase.apps.length) {
-            firebase.initializeApp({
-                firebaseConfig
-            });
-        }
-
-        //Anonynous login
-        firebase.auth().signInAnonymously().then(auth => {
-            this.userAuth = auth;
-        });
         this.myPhotosRef = firebase.storage().ref('Images/');
     }
 
@@ -29,5 +18,5 @@ export class ImagesUpload {
     uploadPhoto(myPhoto, fileName, type) {
         return this.myPhotosRef.child('/' + type + '/' + fileName)
             .putString(myPhoto, 'base64', { contentType: 'image/jpeg' })
-    }
+        }
 }
