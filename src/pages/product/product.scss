@@ -1,0 +1,43 @@
+page-product {
+    .featuredImage {
+        height: 35%;
+        background-size: cover;
+        background-position: center center;
+    }
+
+    // FOOTER
+    .footer-ios .toolbar-background-ios {
+        border: none !important
+    }
+    .footer-md .toolbar-background-md {
+        border: none !important
+    }
+    .toolbar-background {
+        background: $red !important
+    }
+    .toolbar-content {
+        padding: 10px;
+        padding-top: 15px !important
+    }
+
+    // CLOSE BTN
+    .close {
+        position: absolute;
+        width: 3%;
+        top: 20px;
+        left: 20px;
+    }
+
+        // iPhone X
+        @media only screen 
+        and (device-width : 375px) 
+        and (device-height : 812px) 
+        and (-webkit-device-pixel-ratio : 3) { 
+            .close {
+                position: absolute;
+                width: 3%;
+                top: 40px;
+                left: 20px;
+            }
+        }
+}

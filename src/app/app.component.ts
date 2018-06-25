@@ -8,24 +8,29 @@ import { Storage } from '@ionic/storage';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = 'LoginPage';
+  rootPage: any;
 
   constructor(
-    platform: Platform, 
-    statusBar: StatusBar, 
+    platform: Platform,
+    statusBar: StatusBar,
     splashScreen: SplashScreen,
     private storage: Storage
   ) {
     this.storage.get('user_pizza_app')
       .then((user) => {
-        if(user){
+        if (user) {
           this.rootPage = 'TabsPage';
+        }
+        else {
+          this.rootPage = 'LoginPage';
         }
       });
 
     platform.ready().then(() => {
+      setTimeout(() => {
+        splashScreen.hide();
+      });
       statusBar.styleDefault();
-      splashScreen.hide();
     });
   }
 }

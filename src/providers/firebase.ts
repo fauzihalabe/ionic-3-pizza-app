@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from "angularfire2/firestore";
+import { AngularFirestore, AngularFirestoreCollection } from "angularfire2/firestore";
 import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map';
 
@@ -11,9 +11,20 @@ export class FirebaseProvider {
   ) {
   }
 
+  //Save user on firestore
+  saveUser(data) {
+    return this.afs.collection('Users').doc(data.$key).update(data);
+  }
+
+
   //Create user on firestore
   postUser(data) {
-    return this.afs.collection('Users').add(data);
+    return this.afs.collection('Users').doc(data.uid).set(data);
+  }
+
+  //Create order on firestore
+  postOrder(data) {
+    return this.afs.collection('Orders').add(data);
   }
 
   //Get current user from uid

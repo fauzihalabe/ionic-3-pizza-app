@@ -1,0 +1,111 @@
+<ion-content *ngIf="user">
+  <!-- REFRESH -->
+  <ion-refresher (ionRefresh)="refresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <!-- FEATURES TEXT -->
+  <div class="padding-20 padding-bottom-0">
+    <img *ngIf="modal" src="assets/imgs/close-black.png" class="close" (click)="close()">
+    <h2 class="black bold no-margin">
+      Perfil
+    </h2>
+  </div>
+
+  <!-- CART ITEMS -->
+  <div class="padding-20">
+    <!-- AVATAR -->
+    <div class="center">
+      <img *ngIf="!user.avatar" class="avatarPos avatar" (click)="changeAvatar()">
+      <img *ngIf="user.avatar" class="avatarPos" [ngStyle]="{ 'background-image': 'url(' + user.avatar + ')'}" (click)="changeAvatar()">
+    </div>
+
+    <!-- FORMS -->
+    <ion-grid class="no-padding mg-top-30">
+      <ion-row class="no-padding">
+        <ion-col col-12>
+          <!-- NAME -->
+          <ion-item class="transparent-bg no-padding">
+            <ion-label stacked class="black">Nome</ion-label>
+            <ion-input [(ngModel)]="user.name" type="text" class="black bold"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="no-padding mg-top-20">
+        <ion-col col-6>
+          <!-- CITY -->
+          <ion-item class="transparent-bg no-padding">
+            <ion-label stacked class="black">Cidade</ion-label>
+            <ion-input [(ngModel)]="user.city" type="text" class="black bold"></ion-input>
+          </ion-item>
+        </ion-col>
+
+        <ion-col col-6>
+          <!-- STATE -->
+          <ion-item class="transparent-bg no-padding">
+            <ion-label stacked class="black">Estado</ion-label>
+            <ion-input [(ngModel)]="user.state" type="text" class="black bold"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="no-padding mg-top-20">
+        <ion-col col-12>
+          <!-- ADDRESS -->
+          <ion-item class="transparent-bg no-padding">
+            <ion-label stacked class="black">Rua</ion-label>
+            <ion-input [(ngModel)]="user.address" type="text" class="black bold"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="no-padding mg-top-20">
+        <ion-col col-6>
+          <!-- NEIGHBORHOOD -->
+          <ion-item class="transparent-bg no-padding">
+            <ion-label stacked class="black">Bairro</ion-label>
+            <ion-input [(ngModel)]="user.neighborhood" type="text" class="black bold"></ion-input>
+          </ion-item>
+        </ion-col>
+
+        <ion-col col-6>
+          <!-- NUMBER -->
+          <ion-item class="transparent-bg no-padding">
+            <ion-label stacked class="black">Número</ion-label>
+            <ion-input [(ngModel)]="user.number" type="number" class="black bold"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="no-padding mg-top-20">
+        <ion-col col-12>
+          <!-- COMPLEMENT -->
+          <ion-item class="transparent-bg no-padding">
+            <ion-label stacked class="black">Complemento</ion-label>
+            <ion-input [(ngModel)]="user.complement" type="text" class="black bold"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <!-- FAB BUTTON -->
+  <ion-fab right bottom>
+    <button ion-fab color="light" class="bgButton">
+      <ion-icon class="eggshell" name="ios-more"></ion-icon>
+    </button>
+    <ion-fab-list side="left">
+      <button ion-fab (click)="logout()">
+        <ion-icon  name="md-power"></ion-icon>
+      </button>
+      <button ion-fab (click)="save()">
+        <ion-icon name="md-checkmark-circle-outline"></ion-icon>
+      </button>
+    </ion-fab-list>
+  </ion-fab>
+
+  <br>
+  <br>
+  <br>
+</ion-content>

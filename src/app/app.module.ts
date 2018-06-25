@@ -13,6 +13,7 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AuthProvider } from '../providers/auth';
+import { ImagesUpload } from '../providers/image-upload';
 import { FirebaseProvider } from '../providers/firebase';
 import { LoadingProvider } from '../providers/loading';
 import { IonicStorageModule } from '@ionic/storage';
@@ -21,6 +22,8 @@ import { IonicStorageModule } from '@ionic/storage';
 import { LoginPageModule } from '../pages/login/login.module';
 import { CreateAccountPageModule } from '../pages/create-account/create-account.module';
 import { TabsPageModule } from '../pages/tabs/tabs.module';
+import { ProductPageModule } from '../pages/product/product.module';
+import { CartPageModule } from '../pages/cart/cart.module';
 
 @NgModule({
   declarations: [
@@ -31,6 +34,8 @@ import { TabsPageModule } from '../pages/tabs/tabs.module';
     LoginPageModule,
     CreateAccountPageModule,
     TabsPageModule,
+    ProductPageModule,
+    CartPageModule,
     //Others
     IonicStorageModule.forRoot(),
     BrowserModule,
@@ -49,6 +54,7 @@ import { TabsPageModule } from '../pages/tabs/tabs.module';
     AuthProvider,
     FirebaseProvider,
     LoadingProvider,
+    ImagesUpload
   ]
 })
 export class AppModule {}

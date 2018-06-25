@@ -1,0 +1,41 @@
+page-profile {
+    // iPhone X
+    @media only screen 
+    and (device-width : 375px) 
+    and (device-height : 812px) 
+    and (-webkit-device-pixel-ratio : 3) { 
+        .scroll-content {
+            padding-top: 40px !important
+        }
+    }
+    
+    .close {
+        width: 3%;
+        margin-bottom: 20px;
+    }
+
+    .bgButton {
+        background: $green
+    }
+
+    .avatar {
+        background-image: url('../assets/imgs/avatar.png');
+    }
+
+    .avatarPos {
+        background-size: cover;
+        background-position: center center;
+        height: 100px;
+        width: 100px;
+        border: 3px solid $red;
+        border-radius: 100px;
+    }
+
+    // INPUTS
+    .item-ios.item-block .item-inner {
+        border-bottom: 1.5px solid $black;
+    }
+    .item-md.item-block .item-inner {
+        border-bottom: 1.5px solid $black;
+    }
+}

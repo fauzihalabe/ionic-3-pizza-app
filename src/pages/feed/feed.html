@@ -1,4 +1,9 @@
 <ion-content *ngIf="user">
+  <!-- REFRESH -->
+  <ion-refresher (ionRefresh)="refresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
   <!-- HEADER -->
   <div class="feed-header">
     <!-- WELCOME MESSAGE -->
@@ -9,19 +14,25 @@
     <!-- DEFAULT AVATAR -->
     <div *ngIf="!user.avatar" class="avatarPos avatar">
     </div>
+    <!-- USER AVATAR -->
+    <div *ngIf="user.avatar" class="avatarPos" [ngStyle]="{ 'background-image': 'url(' + user.avatar + ')'}">
+    </div>
   </div>
 
   <!-- SUBHEADER -->
   <div class="feed-subheader">
     <!-- ADDRESS -->
-    <p class="black bold">
-      R. agostinho irente
+    <p class="black bold" *ngIf="!user.address">
+      Complete seu cadastro
+    </p>
+    <p class="black bold" *ngIf="user.address">
+      {{user.address}}
     </p>
 
     <!-- EDIT -->
-    <p class="black edit">
+    <!-- <p class="black edit">
       Editar
-    </p>
+    </p> -->
   </div>
 
   <!-- BODY -->
@@ -34,7 +45,7 @@
     <!-- SLIDE ITEMS -->
     <ion-scroll scrollX="true" scrollbar-x="false" style="width: 100%; height: 120px">
       <ion-row nowrap>
-        <div class="slideContainer center" *ngFor="let p of products; let i = index" [ngClass]="i != 0 ? 'mg-left-20' : ''">
+        <div class="slideContainer center" *ngFor="let p of products; let i = index" [ngClass]="i != 0 ? 'mg-left-20' : ''" (click)="open(p)">
           <div class="slideItem" [ngStyle]="{ 'background-image': 'url(' + p.image + ')'}">
           </div>
           <p class="black regular mg-0 mg-top-15">
@@ -45,7 +56,7 @@
     </ion-scroll>
 
     <!-- SHOW ALL OPTIONS -->
-    <div class="showAllOptions bold center">
+    <div class="showAllOptions bold center" (click)="openProducts()">
       Ver todas as opções
     </div>
 
@@ -60,7 +71,7 @@
         R$
       </h4>
       <h1 class="red bold no-margin font40" style="display: inline-block">
-        {{amount}}
+        {{toPrice(amount)}}
       </h1>
 
       <div class="amountRight">
@@ -74,10 +85,12 @@
     </div>
 
     <!-- SHOW ALL OPTIONS -->
-    <div class="showAllOptions bold center mg-top-10">
+    <div class="showAllOptions bold center mg-top-10" (click)="openCart()">
       Abrir carrinho
     </div>
   </div>
 
-
+  <br>
+  <br>
+  <br>
 </ion-content>

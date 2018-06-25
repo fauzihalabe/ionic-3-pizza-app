@@ -1,0 +1,43 @@
+<ion-content>
+  <!-- REFRESH -->
+  <ion-refresher (ionRefresh)="refresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  
+  <!-- FEATURES TEXT -->
+  <div class="padding-20 padding-bottom-0">
+    <img *ngIf="modal" src="assets/imgs/close-black.png" class="close" (click)="close()">
+    <h2 class="black bold no-margin">
+      Carrinho
+    </h2>
+    <p class="gray bold">Pressione um item para remover do carrinho</p>
+  </div>
+
+  <!-- CART ITEMS -->
+  <div class="padding-20">
+    <!-- ITEM -->
+    <div class="product" *ngFor="let item of cart; let i = index" (press)="removeItem(i, item)">
+      <h4 class="black">
+        {{item.title}}
+      </h4>
+
+      <h4 class="black price">
+        R${{toPrice(item.price)}}
+      </h4>
+    </div>
+
+    <!-- AMOUNT -->
+    <h3 class="red bold mg-top-40">Total: R${{toPrice(amount)}}</h3>
+  </div>
+
+  <!-- FAB CART BUTTON -->
+  <ion-fab right bottom (click)="pay()">
+    <button ion-fab class="bgButton">
+      <ion-icon class="eggshell" name="logo-usd"></ion-icon>
+    </button>
+  </ion-fab>
+
+  <br>
+  <br>
+  <br>
+</ion-content>
